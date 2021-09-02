@@ -1,0 +1,28 @@
+.drawwer{
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+.drawerTop{
+    flex: 1;
+}
+.drawerBelow{
+    flex: 2;
+}
+.drawerTitle{
+    font-size: 18px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+.selector{
+    height: 50vh;
+    width: 15vw;
+    border: 1px solid black;
+    padding: 2px;
+    overflow: scroll;
+}
+.mylist{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+}

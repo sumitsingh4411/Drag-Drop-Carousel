@@ -1,0 +1,17 @@
+.home {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 96vw;
+  justify-content: flex-start;
+}
+
+.homeleft {
+  flex: 1;
+  margin: 10px;
+}
+
+.homeright {
+  flex: 3;
+}
