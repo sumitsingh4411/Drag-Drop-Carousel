@@ -26,3 +26,6 @@
     margin: 5px;
     border: 1px solid black;
 }
+.dragactive{
+    background-color: cyan;
+}

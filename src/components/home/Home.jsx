@@ -22,18 +22,24 @@ function Home() {
             console.log(err)
         })
     }, [mydata]);
-
-
     const onDragEnd = (result) => {
-        console.log(result)
+
+
         const { source, destination } = result;
+
+        //base casse
         if (!destination) return null;
         if (destination.droppableId === source.droppableId && destination.index === source.index)
             return null;
+
         let add,
             leftname = initialDataName,
             realimage = initialDataReal;
+
+
         realimage = realimage.filter(e => e !== undefined)
+
+
         let sourcindex = (source.index - (mycategories.indexOf(mydata) * 10)) - 1;
         let destinationindex = (destination.index - (mycategories.indexOf(mydata) * 10)) - 1;
         console.log(sourcindex, destinationindex)
@@ -41,13 +47,13 @@ function Home() {
             destinationindex = destinationindex - 1;
         if (sourcindex === 10)
             sourcindex = sourcindex - 1;
+
+
+
         if (source.droppableId === 'myimagename') {
             add = leftname[sourcindex];
-            console.log(add, realimage)
-            if (realimage.indexOf(add)) {
-                return null;
-            }
-            leftname.splice(source, 1);
+            if (source.droppableId !== 'myimagename')
+                leftname.splice(source, 1);
         } else {
             if (realimage.length === 1) {
                 alert('you can not remove it');
@@ -57,10 +63,12 @@ function Home() {
             realimage.splice(source, 1);
         }
         if (destination.droppableId === 'myimagename') {
-            if (leftname.indexOf(add) === -1)
+
+            if (destination.droppableId !== 'myimagename')
                 leftname.splice(destinationindex, 0, add);
         }
         else {
+            console.log(realimage.indexOf(add));
             if (realimage.indexOf(add) === -1)
                 realimage.splice(destinationindex, 0, add);
         }
@@ -69,7 +77,7 @@ function Home() {
         setinitialDataReal(realimage);
     }
 
-    
+
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <HeaderStyle />
@@ -78,7 +86,7 @@ function Home() {
                     <LeftDrawer initialData={initialDataName} mydata={mydata} />
                 </div>
                 <div className="homeright">
-                    <MYCarousel initialData={initialDataReal} />
+                    <MYCarousel initialData={initialDataReal} mydata={mydata} />
                 </div>
             </div>
         </DragDropContext>

@@ -8,8 +8,7 @@ import Item from './Item';
 
 
 
-function MYCarousel({ initialData }) {
-    console.log(initialData)
+function MYCarousel({ initialData, mydata }) {
     const [round, setround] = React.useState(false);
     return (
         <div className="carousel">
@@ -22,7 +21,7 @@ function MYCarousel({ initialData }) {
                                 <Carousel animation='slide' interval={5000}>
                                     {
                                         initialData && initialData.map((e) => (
-                                           e &&  <Item index={e.index} src={e.imageUrl} round={round} />
+                                            e && <Item index={e.index} src={e.imageUrl} round={round} mydata={mydata} />
                                         ))
                                     }
                                 </Carousel>
