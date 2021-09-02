@@ -1,3 +1,24 @@
+# Drag-drop-carousel
+# Drag-drop-carousel Live url https://dragdropfrontend.herokuapp.com/
+
+## # Drag-drop-carousel backend url https://dragdropfrontend.herokuapp.com/
+
+## how to start locally
+
+  1. Download this repository
+  2. open in text editor
+  3. download backend nodejs code
+  4. run "npm install" for installing all package in both folder in backend and frontend
+  5. for starting backend run "npm run dev"
+  6. run comman "npm install"
+  7. run command "npm start" for starting this project
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
