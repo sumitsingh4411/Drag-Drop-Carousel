@@ -1,7 +1,7 @@
 # Drag-drop-carousel
 # Drag-drop-carousel Live url https://dragdropfrontend.herokuapp.com/
 
-## # Drag-drop-carousel backend url https://dragdropfrontend.herokuapp.com/
+## # Drag-drop-carousel backend url https://github.com/sumitsingh4411/Drag-Drop-Carousel-backend
 
 ## how to start locally
 
