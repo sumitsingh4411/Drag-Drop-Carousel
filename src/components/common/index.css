@@ -1,3 +1,13 @@
-.myselect{
-    width: 15vw;
+.myselect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.leftcategory{
+    width: 14vw;
+}
+.addcategory{
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
 }

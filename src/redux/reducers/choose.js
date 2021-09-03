@@ -1,6 +1,5 @@
 
 let initialData = 'Landascape';
-
 const choose = (state = initialData, action) => {
     switch (action.type) {
         case "CHOOSECATEGORY":

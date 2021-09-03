@@ -24,6 +24,7 @@
 .mylist{
     padding: 10px;
     margin: 5px;
+    margin-top: 15px;
     border: 1px solid black;
 }
 .dragactive{

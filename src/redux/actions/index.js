@@ -6,3 +6,9 @@ export const chooseCategory =(category)=>{
     }
 }
 
+export const updateValue=(value)=>{
+    return {
+        type:'UPDATEVALUE',
+        payload:value
+    }
+}

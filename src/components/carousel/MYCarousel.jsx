@@ -5,11 +5,18 @@ import LeftIcon from './../../assets/chevron-left-solid.svg';
 import rightIcon from './../../assets/chevron-right-solid.svg';
 import Carousel from 'react-material-ui-carousel'
 import Item from './Item';
+import { useSelector } from 'react-redux';
 
 
 
-function MYCarousel({ initialData, mydata }) {
+
+function MYCarousel({ initialData }) {
+    const value = useSelector(e => e.updateValue)
     const [round, setround] = React.useState(false);
+    const [data, setData] = React.useState([]);
+    React.useEffect(() => {
+        setData(initialData);
+    }, [value, initialData])
     return (
         <div className="carousel">
             <div className="inner">
@@ -21,7 +28,7 @@ function MYCarousel({ initialData, mydata }) {
                                 <Carousel animation='slide' interval={5000}>
                                     {
                                         initialData && initialData.map((e) => (
-                                            e && <Item index={e.index} src={e.imageUrl} round={round} mydata={mydata} />
+                                            e && e.preview_photos && <Item index={e.id} src={e.preview_photos[0].urls.full} round={round} />
                                         ))
                                     }
                                 </Carousel>
@@ -33,15 +40,14 @@ function MYCarousel({ initialData, mydata }) {
                         )
                     }
                 </Droppable>
-
                 <img src={rightIcon} alt="" className='helloimage' onClick={() => setround(!round)} />
             </div>
             <div className="carouselximage">
                 {
-                    initialData && initialData.map(e => (
-                        <img
+                    data && data.map(e => (
+                        e && e.preview_photos && <img
                             className="carousexlImage"
-                            src={e.imageUrl}
+                            src={e.preview_photos[0].urls.full}
                             alt="First slide"
                         />
                     ))

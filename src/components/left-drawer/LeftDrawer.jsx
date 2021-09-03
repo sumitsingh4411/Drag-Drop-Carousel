@@ -3,8 +3,14 @@ import './index.css'
 import SelectStyle from './../common/SelectStyle';
 import { Droppable } from 'react-beautiful-dnd';
 import { Draggable } from 'react-beautiful-dnd';
+import { useSelector } from 'react-redux';
 
-function LeftDrawer({ initialData, mydata }) {
+function LeftDrawer({ initialData }) {
+    const mydata = useSelector(state => state.choose);
+    let arr = initialData;
+    arr = arr.filter(e => e.preview_photos !== null);
+
+    
     return (
         <div className="drawwer">
             <div className="drawerTop">
@@ -18,8 +24,8 @@ function LeftDrawer({ initialData, mydata }) {
                         (provided, snapshot) => (
                             <div className={`selector ${snapshot.isDraggingOver ? 'dragactive' : ''}`} ref={provided.innerRef} {...provided.droppableProps}>
                                 {
-                                    initialData && initialData.map((e) => (
-                                        e && <Draggable index={e.index} draggableId={e.index + 'myimagename'}>
+                                    arr && arr.map((e) => (
+                                        e && <Draggable index={e.id} draggableId={e.id + 'myimagename'}>
                                             {
                                                 (provided) => (
                                                     <div
@@ -29,7 +35,7 @@ function LeftDrawer({ initialData, mydata }) {
                                                         {...provided.dragHandleProps}
 
                                                     >
-                                                        {mydata + '-' + (e.index)}.png
+                                                        {mydata + '-' + (e.id)}.png
                                                     </div>
                                                 )
                                             }

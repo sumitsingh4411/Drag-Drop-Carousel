@@ -1,8 +1,11 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd';
+import { useSelector } from 'react-redux';
 
 
-function Item({ index, src, round, mydata }) {
+
+function Item({index, round, src}) {
+    const mydata = useSelector(state => state.choose);
     return (
         <Draggable index={index} draggableId={index + 'myrealimagehello'}>
             {
